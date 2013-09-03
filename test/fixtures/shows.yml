@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  venue: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  geo: MyString
+  date: 2013-09-03
+  info: MyText
+  info_link: MyText
+  tickets_link: MyText
+
+two:
+  venue: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  geo: MyString
+  date: 2013-09-03
+  info: MyText
+  info_link: MyText
+  tickets_link: MyText
