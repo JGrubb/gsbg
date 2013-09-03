@@ -1,4 +1,11 @@
 Gsbg::Application.routes.draw do
+  get "shows/index"
+  get "shows/show"
+  get "shows/new"
+  get "shows/create"
+  get "shows/edit"
+  get "shows/update"
+  get "shows/destroy"
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
