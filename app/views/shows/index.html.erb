@@ -1,2 +1,8 @@
-<h1>Shows#index</h1>
-<p>Find me in app/views/shows/index.html.erb</p>
+<div class="row">
+  <h1 class="large-12 columns">Shows#index</h1>
+  <div class="large-12 columns">
+    <% @shows.each do |show| %>
+      <%= debug show %>
+    <% end %>
+  </div>
+</div>

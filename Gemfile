@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 gem 'mysql2'
 gem 'pg'
+gem 'annotate'
 
 gem 'devise'
 gem 'simple_form'
