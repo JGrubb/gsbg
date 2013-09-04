@@ -24,7 +24,7 @@ one:
   city: MyString
   state: MyString
   geo: MyString
-  date: 2013-09-03
+  date: <%= Date.today %>
   info: MyText
   info_link: MyText
   tickets_link: MyText
@@ -35,7 +35,7 @@ two:
   city: MyString
   state: MyString
   geo: MyString
-  date: 2013-09-03
+  date: <%= Date.yesterday %>
   info: MyText
   info_link: MyText
   tickets_link: MyText
