@@ -1,7 +1,8 @@
 <div class="large-12 columns">
   <%= simple_form_for @show do |f| %>
     <%= f.input :venue %>
-    <%= f.date_field :date %>
+    <%= f.label :date %>
+    <%= f.date_field :date, required: true %>
     <%= f.input :address %>
     <%= f.input :city %>
     <%= f.input :state %>
