@@ -10,7 +10,7 @@ gem 'pg'
 gem 'annotate'
 
 gem 'devise'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.0rc'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
