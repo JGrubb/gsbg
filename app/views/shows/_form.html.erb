@@ -1,12 +1,16 @@
-<div class="large-12 columns">
-  <%= simple_form_for @show do |f| %>
-    <%= f.input :venue %>
-    <%= f.label :date %>
-    <%= f.date_field :date, required: true %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :info %>
-    <%= f.button :submit %>
-  <% end %>
+<div class="large-6 large-centered columns">
+  <div class="row">
+    <%= simple_form_for @show, defaults: { input_html: { class: "large-12 column" } } do |f| %>
+      <%= f.input :venue %>
+      <div class="input date required large-12 column">
+        <%= f.label :date %>
+        <%= f.date_field :date, required: true %>
+      </div>
+      <%= f.input :address %>
+      <%= f.input :city %>
+      <%= f.input :state, collection: Show.state_abbr %>
+      <%= f.input :info %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 </div>

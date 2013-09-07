@@ -17,6 +17,7 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    @show = Show.find params[:id]
   end
 
   def update
