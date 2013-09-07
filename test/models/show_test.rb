@@ -25,4 +25,8 @@ class ShowTest < ActiveSupport::TestCase
     assert show.save, "Did not save show with proper fields"
   end
 
+  test "find" do
+    assert_equal "The Fillmore", shows(:one).venue
+  end
+
 end

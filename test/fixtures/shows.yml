@@ -19,11 +19,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  venue: MyString
+  venue: The Fillmore
   address: MyString
-  city: MyString
-  state: MyString
-  geo: MyString
+  city: San Francisco
+  state: California
+  country: USA
   date: <%= Date.today %>
   info: MyText
   info_link: MyText
@@ -34,7 +34,7 @@ two:
   address: MyString
   city: MyString
   state: MyString
-  geo: MyString
+  country: Ireland
   date: <%= Date.yesterday %>
   info: MyText
   info_link: MyText

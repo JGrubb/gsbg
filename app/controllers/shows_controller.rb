@@ -1,9 +1,10 @@
 class ShowsController < ApplicationController
   def index
-    @shows = Show.where("date >= ?", Date.today)
+    @shows = Show.where("date >= ?", Date.today).order(date: :asc)
   end
 
   def show
+    @show = Show.find params[:id]
   end
 
   def new
@@ -21,6 +22,8 @@ class ShowsController < ApplicationController
   end
 
   def update
+    @show = Show.find params[:id]
+    @show.update(show_params)
   end
 
   def destroy
