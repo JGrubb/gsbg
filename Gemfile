@@ -15,6 +15,8 @@ gem 'simple_form', '~> 3.0.0rc'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'zurb-foundation', '~> 4.3.1'
+gem 'carrierwave'
+gem 'fog', '~> 1.3.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
