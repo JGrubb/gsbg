@@ -23,10 +23,24 @@
         </div>
       </div>
     </header>
+    <% flash.each do |key, value| %>
+      <div class='alert-box row <%= key %>' data-alert>
+        <%= value %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
 
     <%= yield %>
 
-    
+    <footer id="footer">
+      <nav class="row">
+        <% if current_user %>
+          <%= link_to "log out", destroy_user_session_path, data: { method: :delete } %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path %>
+        <% end %>
+      </nav>  
+    </footer>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
