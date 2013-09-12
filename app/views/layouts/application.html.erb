@@ -17,6 +17,22 @@
 
   <body>
     <header id="header">
+    <% if current_user %>
+      <div class="contain-to-grid">
+        <nav class="top-bar">
+          <ul class="title-area">
+            <li class="name"></li>
+          </ul>
+        <% if current_user.is_admin %>
+          <section class="top-bar-section">
+          <ul class="right">
+            <li><%= link_to "New show", new_show_path %></li>
+          </ul>
+          </section>
+        <% end %>
+        </nav>
+      </div>
+    <% end %>
       <div class="row">
         <div id="logo">
           <%= link_to content_tag(:h1, "Greensky Bluegrass", class: "column large-centered"), root_path %>
