@@ -1,2 +1,11 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<div class="row">
+  <div class="large-8 columns large-centered">
+    <h2><%= @page.title %></h2>
+    <div id="page-body">
+      <%= simple_format @page.body %>
+    </div>
+    <div class="action">
+      <%= link_to "Edit", edit_page_path(@page), class: "button" %>
+    </div>
+  </div>
+</div>

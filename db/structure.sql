@@ -36,6 +36,7 @@ CREATE TABLE pages (
     id integer NOT NULL,
     title character varying(255),
     body text,
+    slug character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );

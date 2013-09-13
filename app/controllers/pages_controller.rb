@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @page.create_slug
     @page.save
     flash[:notice] = "#{@page.title} created."
-    redirect_to page_path @page
+    redirect_to show_page_path @page
   end
 
   def edit
@@ -21,10 +21,11 @@ class PagesController < ApplicationController
 
   def update
     @page = Page.find_by_slug params[:id]
+    @page.create_slug
     @page.update_attributes page_params
     @page.save
     flash[:notice] = "#{@page.title} updated."
-    redirect_to @page
+    redirect_to show_page_path @page
   end
 
   def delete
@@ -41,7 +42,7 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title, :slug, :body)
+    params.require(:page).permit(:title, :body)
   end
 
 end
