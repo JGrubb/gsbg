@@ -29,6 +29,38 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: pages; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE pages (
+    id integer NOT NULL,
+    title character varying(255),
+    body text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: pages_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE pages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE pages_id_seq OWNED BY pages.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -81,7 +113,22 @@ ALTER SEQUENCE shows_id_seq OWNED BY shows.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY pages ALTER COLUMN id SET DEFAULT nextval('pages_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY shows ALTER COLUMN id SET DEFAULT nextval('shows_id_seq'::regclass);
+
+
+--
+-- Name: pages_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY pages
+    ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
 
 
 --
@@ -126,3 +173,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130903201456');
 INSERT INTO schema_migrations (version) VALUES ('20130907034047');
 
 INSERT INTO schema_migrations (version) VALUES ('20130907040616');
+
+INSERT INTO schema_migrations (version) VALUES ('20130913174838');

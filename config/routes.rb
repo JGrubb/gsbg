@@ -1,10 +1,5 @@
 Gsbg::Application.routes.draw do
-  get "pages/show"
-  get "pages/new"
-  get "pages/create"
-  get "pages/edit"
-  get "pages/update"
-  get "pages/delete"
+  resources :pages
   resources :shows
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
