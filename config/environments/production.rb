@@ -73,6 +73,7 @@ Gsbg::Application.configure do
   config.active_support.deprecation = :notify
 
   # Disable automatic flushing of the log to improve performance.
+  config.action_mailer.default_url_options = { :host => '162.243.4.156' }
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
