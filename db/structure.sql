@@ -3,7 +3,6 @@
 --
 
 SET statement_timeout = 0;
-SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -171,15 +170,18 @@ ALTER TABLE ONLY shows ALTER COLUMN id SET DEFAULT nextval('shows_id_seq'::regcl
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
 -- Name: pages_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY pages
     ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
@@ -246,11 +248,14 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 
 SET search_path TO "$user",public;
 
+INSERT INTO schema_migrations (version) VALUES ('0');
+
 INSERT INTO schema_migrations (version) VALUES ('20130903201456');
 
 INSERT INTO schema_migrations (version) VALUES ('20130907034047');
 
 INSERT INTO schema_migrations (version) VALUES ('20130907040616');
 
-INSERT INTO schema_migrations (version) VALUES ('20130913174838');
 INSERT INTO schema_migrations (version) VALUES ('20130909221410');
+
+INSERT INTO schema_migrations (version) VALUES ('20130913174838');
