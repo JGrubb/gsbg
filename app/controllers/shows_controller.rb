@@ -13,7 +13,7 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.create(show_params)
-    flash[:notice] = "Good job"
+    flash[:notice] = "Good job, #{@show.date} is created."
     redirect_to shows_path
   end
 
@@ -27,6 +27,14 @@ class ShowsController < ApplicationController
   end
 
   def destroy
+    @show = Show.find params[:id]
+    if @show.destroy
+      flash[:notice] = "show deleted."
+      redirect_to shows_path
+    else
+      flash[:error] = "Error, somehow."
+      redirect_to shows_path
+    end
   end
 
   private

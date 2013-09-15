@@ -87,7 +87,9 @@ CREATE TABLE shows (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     country character varying(255) DEFAULT 'USA'::character varying,
-    geo json
+    geo json,
+    deleted boolean,
+    cancelled boolean
 );
 
 
@@ -259,3 +261,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130907040616');
 INSERT INTO schema_migrations (version) VALUES ('20130909221410');
 
 INSERT INTO schema_migrations (version) VALUES ('20130913174838');
+
+INSERT INTO schema_migrations (version) VALUES ('20130915011325');

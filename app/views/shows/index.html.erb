@@ -8,6 +8,10 @@
           <div class="day"><%= show.date.strftime('%d') %></div>
         </div>
         <h3><%= show.venue %></h3>
+        <%= link_to "Edit show", edit_show_path(show) %> | <%= link_to "Delete show", show_path(show), data: {
+          confirm: "Are you sure?",
+          method: :delete
+        } %>
       </div>
     <% end %>
   </div>

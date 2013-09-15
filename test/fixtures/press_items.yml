@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pub: MyString
+  date: 2013-09-14
+  link: MyString
+  quote: MyString
+
+two:
+  pub: MyString
+  date: 2013-09-14
+  link: MyString
+  quote: MyString
