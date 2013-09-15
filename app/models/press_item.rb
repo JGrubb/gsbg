@@ -13,4 +13,5 @@
 
 class PressItem < ActiveRecord::Base
   validates :pub, :link, presence: true
+  mount_uploader :thumbnail, PressThumbnailUploader
 end
