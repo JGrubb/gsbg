@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'zurb-foundation', '~> 4.3.1'
 gem 'carrierwave'
 gem 'fog', '~> 1.3.1'
+gem 'mini_magick'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

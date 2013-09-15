@@ -1,7 +1,8 @@
 <div class="row">
   <% @press_items.each do |item| %>
     <div class="large-6 column">
-      <%= debug item %>
+      <%= item.pub %>
+      <%= image_tag item.thumbnail_url(:thumb) if item.thumbnail? %>
     </div>
   <% end %>
 </div>

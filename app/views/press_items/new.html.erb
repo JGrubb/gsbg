@@ -1,7 +1,9 @@
 <div class="row">
   <div class="large-8 large-centered column">
     <h2>New Press</h2>
-    <%= simple_form_for @press_item, defaults: { wrapper_html: { class: "large-12 column" } }, html: { class: "press-item" } do |f| %>
+    <%= simple_form_for @press_item,
+      defaults: { wrapper_html: { class: "large-12 column" } }, 
+      html: { class: "press-item", multipart: true } do |f| %>
       <%= f.input :pub, label: "Publication (name)" %>
       <div class="input date large-12 column">
         <%= f.label :date %>
@@ -9,6 +11,7 @@
       </div>
       <%= f.input :link %>
       <%= f.input :quote %>
+      <%= f.input :thumbnail, as: :file %>
       <%= f.button :submit, class: "radius success" %>
     <% end %>
   </div>

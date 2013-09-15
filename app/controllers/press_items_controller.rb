@@ -16,6 +16,6 @@ class PressItemsController < ApplicationController
   private
 
   def press_item_params
-    params.require(:press_item).permit(:pub, :date, :link, :quote)
+    params.require(:press_item).permit(:pub, :date, :link, :quote, :thumbnail)
   end
 end

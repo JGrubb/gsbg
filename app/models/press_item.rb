@@ -9,6 +9,7 @@
 #  quote      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  thumbnail  :string(255)
 #
 
 class PressItem < ActiveRecord::Base

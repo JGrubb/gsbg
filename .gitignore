@@ -23,3 +23,4 @@ config/database.yml
 config/initializers/fog.rb
 doc
 public/assets
+public/uploads
