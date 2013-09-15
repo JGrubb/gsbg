@@ -1,20 +1,16 @@
-<div class="large-6 large-centered columns">
-  <div class="row">
-    <%= simple_form_for @show, defaults: { wrapper_html: { class: "large-12 column" } }, html: { class: "show" } do |f| %>
-      <%= f.input :venue %>
-      <div class="input date required large-12 column">
-        <%= f.label :date %>
-        <%= f.date_field :date, required: true %>
-      </div>
-      <%= f.input :address %>
-      <%= f.input :city, wrapper_html: { class: "large-8 column" } %>
-      <%= f.input :state, collection: Show.state_abbr, wrapper_html: { class: "large-4 column" } %>
-      <%= f.input :info %>
-      <%= f.input :info_link, as: :url %>
-      <%= f.input :tickets_link, as: :url %>
-      <div class="large-12 column">
-        <%= f.button :submit, class: "radius success" %>
-      </div>
-    <% end %>
+<%= simple_form_for @show, defaults: { wrapper_html: { class: "large-12 column" } }, html: { class: "show" } do |f| %>
+  <%= f.input :venue %>
+  <div class="input date required large-12 column">
+    <%= f.label :date %>
+    <%= f.date_field :date, required: true %>
   </div>
-</div>
+  <%= f.input :address %>
+  <%= f.input :city, wrapper_html: { class: "large-8 column" } %>
+  <%= f.input :state, collection: Show.state_abbr, wrapper_html: { class: "large-4 column" } %>
+  <%= f.input :info %>
+  <%= f.input :info_link, as: :url %>
+  <%= f.input :tickets_link, as: :url %>
+  <div class="large-12 column">
+    <%= f.button :submit, class: "radius success" %>
+  </div>
+<% end %>
