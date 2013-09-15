@@ -7,6 +7,7 @@ Gsbg::Application.routes.draw do
   }
   resources :shows
   resources :pages
+  resources :press_items
   get ':id' => 'pages#show', as: :show_page
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -7,13 +7,16 @@
 #  address      :string(255)
 #  city         :string(255)
 #  state        :string(255)
-#  geo          :string(255)
 #  date         :date
 #  info         :text
 #  info_link    :text
 #  tickets_link :text
 #  created_at   :datetime
 #  updated_at   :datetime
+#  country      :string(255)      default("USA")
+#  geo          :json
+#  deleted      :boolean
+#  cancelled    :boolean
 #
 
 class Show < ActiveRecord::Base
