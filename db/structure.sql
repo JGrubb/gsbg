@@ -22,6 +22,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
 SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
@@ -94,6 +108,40 @@ CREATE SEQUENCE press_items_id_seq
 --
 
 ALTER SEQUENCE press_items_id_seq OWNED BY press_items.id;
+
+
+--
+-- Name: products; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE products (
+    id integer NOT NULL,
+    name character varying(255),
+    description text,
+    properties hstore,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    price numeric(8,2)
+);
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE products_id_seq OWNED BY products.id;
 
 
 --
@@ -210,6 +258,13 @@ ALTER TABLE ONLY press_items ALTER COLUMN id SET DEFAULT nextval('press_items_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY shows ALTER COLUMN id SET DEFAULT nextval('shows_id_seq'::regclass);
 
 
@@ -234,6 +289,14 @@ ALTER TABLE ONLY pages
 
 ALTER TABLE ONLY press_items
     ADD CONSTRAINT press_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY products
+    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
 
 
 --
@@ -288,6 +351,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: products_properties; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX products_properties ON products USING gin (properties);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -317,3 +387,11 @@ INSERT INTO schema_migrations (version) VALUES ('20130915011325');
 INSERT INTO schema_migrations (version) VALUES ('20130915012332');
 
 INSERT INTO schema_migrations (version) VALUES ('20130915015959');
+
+INSERT INTO schema_migrations (version) VALUES ('20130916105201');
+
+INSERT INTO schema_migrations (version) VALUES ('20130916105652');
+
+INSERT INTO schema_migrations (version) VALUES ('20130916105721');
+
+INSERT INTO schema_migrations (version) VALUES ('20130916111219');
