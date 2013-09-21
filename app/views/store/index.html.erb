@@ -1,2 +1,9 @@
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<div id="products" class="row">
+  <% @products.each do |product| %>
+    <div class="product large-6 column">
+      <div class="name"><%= product.name %></div>
+      <div class="price"><%= number_to_currency product.price %></div>
+      <%= link_to "view", product %>
+    </div>
+  <% end %>
+</div>

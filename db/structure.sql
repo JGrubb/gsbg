@@ -118,10 +118,11 @@ CREATE TABLE products (
     id integer NOT NULL,
     name character varying(255),
     description text,
-    properties hstore,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    price numeric(8,2)
+    price numeric(8,2),
+    colors character varying(255)[],
+    sizes character varying(255)[]
 );
 
 
@@ -351,13 +352,6 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
--- Name: products_properties; Type: INDEX; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE INDEX products_properties ON products USING gin (properties);
-
-
---
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -395,3 +389,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130916105652');
 INSERT INTO schema_migrations (version) VALUES ('20130916105721');
 
 INSERT INTO schema_migrations (version) VALUES ('20130916111219');
+
+INSERT INTO schema_migrations (version) VALUES ('20130921023024');
+
+INSERT INTO schema_migrations (version) VALUES ('20130921023325');
