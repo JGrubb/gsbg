@@ -1,5 +1,6 @@
 Gsbg::Application.routes.draw do
 
+  resources :store
   devise_for :users, path_names: { 
                       :sign_in => 'login',
                       :sign_out => 'logout',
