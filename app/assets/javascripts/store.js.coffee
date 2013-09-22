@@ -4,10 +4,13 @@
 #
 jQuery ($) ->
   $('a.add-color').on 'click', (e) ->
+    div = $('<div class="color-input-div"></div>')
     $('<input>').prop(
       name: 'product[colors][]'
       type: 'text'
-    ).insertAfter('.color-input-div:last')
+      )
+      .appendTo(div)
+    div.insertAfter('.color-input-div:last')
     e.preventDefault()
   $('a.remove-color').on 'click', (e) ->
     idx = e.currentTarget.className.split(' ').pop()
