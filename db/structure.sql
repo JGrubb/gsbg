@@ -81,7 +81,8 @@ CREATE TABLE line_items (
     product_id integer,
     cart_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    quantity integer DEFAULT 1
 );
 
 
@@ -503,3 +504,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130921023325');
 INSERT INTO schema_migrations (version) VALUES ('20130922113400');
 
 INSERT INTO schema_migrations (version) VALUES ('20130922113615');
+
+INSERT INTO schema_migrations (version) VALUES ('20130922115319');

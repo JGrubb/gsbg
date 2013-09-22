@@ -4,7 +4,7 @@
     <%= f.input :description %>
     <div class="input checkboxes">
       <%= f.label :sizes %>
-      <%= f.collection_check_boxes :sizes, %w[N/A XS S M L XL XXL], :to_s, :to_s %>
+      <%= f.collection_check_boxes :sizes, Product::SIZES, :to_s, :to_s %>
     </div>
     <div class="input sizes">
       <%= f.label :colors %>

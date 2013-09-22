@@ -13,6 +13,7 @@
 #
 
 class Product < ActiveRecord::Base
+
   has_many :line_items
 
   before_destroy :enure_not_referenced_by_line_items
@@ -25,4 +26,6 @@ class Product < ActiveRecord::Base
       return false
     end
   end
+
+  SIZES = %w[XS S M L XL XXL]   
 end

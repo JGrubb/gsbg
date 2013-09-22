@@ -1,7 +1,24 @@
 <h2>Your cart</h2>
 
-<ul>
-  <% @cart.line_items.each do |item| %>
-    <li><%= item.product.name %></li>
-  <% end %>
-</ul>
+<table id="cart-summary">
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Item</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.line_items.each do |item| %>
+      <tr>
+        <td><%= item.quantity %>&times;</td>
+        <td><%= item.product.name %></td>
+        <td><%= number_to_currency(item.total_price) %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=2>Total</td>
+      <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+  </tbody>
+</table>
