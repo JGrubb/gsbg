@@ -1,0 +1,28 @@
+<div class="large-8">
+  <%= simple_form_for @product, html: { class: "product-form" } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <div class="input checkboxes">
+      <%= f.label :sizes %>
+      <%= f.collection_check_boxes :sizes, Product::SIZES, :to_s, :to_s %>
+    </div>
+    <div class="input sizes">
+      <%= f.label :colors %>
+      <% if params[:action] == 'edit' %>
+        <% @product.colors.each_with_index do |color, i| %>
+          <div class="color-input-div <%= i %>">
+            <%= f.text_field :colors, multiple: true, value: color, class: "color-input #{i}" %>
+            <%= link_to "remove color", "#", class: "button tiny secondary remove-color #{i}" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="color-input-div">
+          <%= f.text_field :colors, multiple: true, class: "color-input" %>
+        </div>
+      <% end %>
+      <%= link_to "add a color", "#", class: "button tiny radius add-color" %>
+    </div>
+    <%= f.input :price %>
+    <%= f.button :submit, class: "radius small success" %>
+  <% end %>
+</div>

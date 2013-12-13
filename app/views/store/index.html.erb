@@ -1,0 +1,10 @@
+<div id="products" class="row">
+  <% @products.each do |product| %>
+    <div class="product large-6 column">
+      <div class="name"><%= product.name %></div>
+      <div class="price"><%= number_to_currency product.price %></div>
+      <%= link_to "view", product %>
+      <%= button_to "Add to cart", line_items_path(product_id: product) %>
+    </div>
+  <% end %>
+</div>

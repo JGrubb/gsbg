@@ -1,0 +1,10 @@
+<h3><%= @product.name %></h3>
+
+<div><%= simple_format @product.description %></div>
+<div class="price"><%= number_to_currency @product.price %></div>
+<% unless @product.sizes.empty? %>
+<%= render 'sizes', product: @product %>
+<% end %>
+<% unless @product.colors.empty? %>
+<%= render 'colors', product: @product %>
+<% end %>

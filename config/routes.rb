@@ -1,5 +1,10 @@
 Gsbg::Application.routes.draw do
 
+  resources :line_items
+
+  resources :carts
+
+  get '/store' => 'store#index', as: :store_index
   devise_for :users, path_names: { 
                       :sign_in => 'login',
                       :sign_out => 'logout',
@@ -8,6 +13,7 @@ Gsbg::Application.routes.draw do
   resources :shows
   resources :pages
   resources :press_items
+  resources :products
   get 'press' => 'press_items#index', as: :press_index
   get ':id' => 'pages#show', as: :show_page
   # The priority is based upon order of creation: first created -> highest priority.
@@ -60,9 +66,9 @@ Gsbg::Application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
+  #scope '/admin' do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #  resources :products
+  #end
 end
