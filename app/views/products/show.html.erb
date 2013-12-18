@@ -3,8 +3,9 @@
 <div><%= simple_format @product.description %></div>
 <div class="price"><%= number_to_currency @product.price %></div>
 <% unless @product.sizes.empty? %>
-<%= render 'sizes', product: @product %>
+  <%= render 'sizes', product: @product %>
 <% end %>
 <% unless @product.colors.empty? %>
-<%= render 'colors', product: @product %>
+  <%= render 'colors', product: @product %>
 <% end %>
+<%= button_to "Add to cart", line_items_path(product_id: @product) %>
