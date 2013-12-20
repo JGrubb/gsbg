@@ -185,7 +185,8 @@ CREATE TABLE products (
     updated_at timestamp without time zone,
     price numeric(8,2),
     colors character varying(255)[],
-    sizes character varying(255)[]
+    sizes character varying(255)[],
+    image character varying(255)[]
 );
 
 
@@ -506,3 +507,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130922113400');
 INSERT INTO schema_migrations (version) VALUES ('20130922113615');
 
 INSERT INTO schema_migrations (version) VALUES ('20130922115319');
+
+INSERT INTO schema_migrations (version) VALUES ('20130922172633');

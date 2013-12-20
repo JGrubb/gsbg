@@ -19,8 +19,12 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find params[:id]
-    @product.update(product_params)
-    redirect_to product_url(@product)
+    if @product.update(product_params)
+      redirect_to product_url(@product)
+    else
+      logger.error @product.errors.inspect
+      redirect_to product_url(@product)
+    end
   end
 
   def destroy
@@ -34,6 +38,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, { sizes: [] }, :price, { colors: [] })
+    params.require(:product).permit(:name, :description, { sizes: [] }, :price, { colors: [] }, :image )
   end
 end

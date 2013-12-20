@@ -10,13 +10,21 @@
 #  price       :decimal(8, 2)
 #  colors      :string(255)
 #  sizes       :string(255)
+#  image       :string(255)
 #
 
 class Product < ActiveRecord::Base
+  mount_uploader :image, ProductImageUploader
 
   has_many :line_items
 
-  before_destroy :enure_not_referenced_by_line_items
+  before_save :parse_images
+
+  before_destroy :ensure_not_referenced_by_line_items
+
+  def parse_images
+    
+  end
 
   def ensure_not_referenced_by_line_items
     if line_items.count.zero?
