@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -13,7 +13,7 @@ gem 'simple_form', '~> 3.0.0rc'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'zurb-foundation', '~> 4.3.1'
+gem 'foundation-rails'
 gem 'carrierwave'
 gem 'fog', '~> 1.3.1'
 gem 'mini_magick'
@@ -52,3 +52,5 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'thin'
